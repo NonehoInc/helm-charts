@@ -1,5 +1,15 @@
 apiVersion: v1
 entries:
+  basket-data:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-11-02T22:04:55.26851098Z"
+    description: A Helm chart for Kubernetes
+    digest: de46dba3943069a25f3c1dcf1c4a1c019cd18f592110b7cd9bdbe5c6aa6abb52
+    name: basket-data
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/basket-data-0.1.0/basket-data-0.1.0.tgz
+    version: 0.1.0
   hello-world:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -78,4 +88,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.0/sql-data-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-02T22:03:47.718525113Z"
+generated: "2022-11-02T22:04:55.268533581Z"
