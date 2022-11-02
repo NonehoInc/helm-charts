@@ -31,6 +31,16 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/hello-world-0.1.9/hello-world-0.1.9.tgz
     version: 0.1.9
+  keystore-data:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-11-02T22:08:15.416602692Z"
+    description: A Helm chart for Kubernetes
+    digest: ec70cf586ebca75d0e5a09337e03cc25913faf76177ea11b8c21a10c924ca0e9
+    name: keystore-data
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/keystore-data-0.1.0/keystore-data-0.1.0.tgz
+    version: 0.1.0
   nosql-data:
   - apiVersion: v1
     appVersion: "1.0"
@@ -88,4 +98,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.0/sql-data-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-02T22:04:55.268533581Z"
+generated: "2022-11-02T22:08:15.416622792Z"
