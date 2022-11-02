@@ -3,6 +3,16 @@ entries:
   hello-world:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-11-02T21:08:50.078374451Z"
+    description: A Helm chart for Kubernetes
+    digest: 205ee8326de1e8e47fe05af6b4f17223a27351b1f18937baf1f12bb7585089f6
+    name: hello-world
+    type: application
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/hello-world-0.1.20/hello-world-0.1.20.tgz
+    version: 0.1.20
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-11-02T16:10:05.442447489Z"
     description: A Helm chart for Kubernetes
     digest: 07b955d6e69ca34cc0ade09928f15bad53530ce251daef0d0820493e2bf349e7
@@ -12,6 +22,15 @@ entries:
     - https://github.com/NonehoInc/helm-charts/releases/download/hello-world-0.1.9/hello-world-0.1.9.tgz
     version: 0.1.9
   rabbitmq:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-11-02T21:08:50.233130239Z"
+    description: A Helm chart for Kubernetes
+    digest: 796845e1e7d6b726ce0f59e9979116b3e7983b5f4a9552f4d2b0859d4b44fa96
+    name: rabbitmq
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/rabbitmq-0.1.10/rabbitmq-0.1.10.tgz
+    version: 0.1.10
   - apiVersion: v1
     appVersion: "1.0"
     created: "2022-11-02T16:10:05.578387435Z"
@@ -24,6 +43,15 @@ entries:
   sql-data:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2022-11-02T21:08:50.389774946Z"
+    description: A Helm chart for Kubernetes
+    digest: 990c42b0c4b7eb8da352aee2aab4e6f595bc02ccd6897472b7aa32796ab39c05
+    name: sql-data
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.20/sql-data-0.1.20.tgz
+    version: 0.1.20
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2022-11-02T19:14:52.143774058Z"
     description: A Helm chart for Kubernetes
     digest: abb617ab6d119bf68136867008fac2052da2788713c2a93b4e658c8ae6a72f6d
@@ -31,4 +59,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.0/sql-data-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-02T19:14:52.143778858Z"
+generated: "2022-11-02T21:08:50.389795546Z"
