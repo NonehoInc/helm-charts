@@ -21,6 +21,16 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/hello-world-0.1.9/hello-world-0.1.9.tgz
     version: 0.1.9
+  nosql-data:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-11-02T22:03:47.718510413Z"
+    description: A Helm chart for Kubernetes
+    digest: 1e76bb749df046854abfcb3b797388db75d64b41bd720c59df7af4d4e6e8b01d
+    name: nosql-data
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/nosql-data-0.1.0/nosql-data-0.1.0.tgz
+    version: 0.1.0
   rabbitmq:
   - apiVersion: v1
     appVersion: "1.0"
@@ -68,4 +78,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.0/sql-data-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-02T21:24:37.935800245Z"
+generated: "2022-11-02T22:03:47.718525113Z"
