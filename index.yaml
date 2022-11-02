@@ -21,4 +21,14 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/rabbitmq-0.1.9/rabbitmq-0.1.9.tgz
     version: 0.1.9
-generated: "2022-11-02T16:10:05.578392035Z"
+  sql-data:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-11-02T19:14:52.143774058Z"
+    description: A Helm chart for Kubernetes
+    digest: abb617ab6d119bf68136867008fac2052da2788713c2a93b4e658c8ae6a72f6d
+    name: sql-data
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.0/sql-data-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-11-02T19:14:52.143778858Z"
