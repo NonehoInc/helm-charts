@@ -15,6 +15,7 @@ ingress:
   enabled: true
   annotations: {}
   tls: []
+  rules: []
 
 resources: {}
 

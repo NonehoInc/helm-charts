@@ -13,10 +13,9 @@ service:
 
 ingress:
   enabled: true
-  annotations: {
-
-  }
+  annotations: {}
   tls: []
+  rules: []
 
 resources: {}
 
