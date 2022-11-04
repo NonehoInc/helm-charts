@@ -15,7 +15,7 @@ ingress:
   enabled: true
   annotations: {}
   tls: []
-  rules: []
+  hosts: []
 
 resources: {}
 
