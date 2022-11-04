@@ -261,6 +261,15 @@ entries:
   webspa:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2022-11-04T17:03:06.27725025Z"
+    description: A Helm chart for Kubernetes
+    digest: 3e58f866168f76b86ae85ac5d28cfc9b7c36837545cb8c495aa8e1e4812f226e
+    name: webspa
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/webspa-0.2.0/webspa-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2022-11-03T03:19:27.44226087Z"
     description: A Helm chart for Kubernetes
     digest: f01ea67eab853f3628a9aba445cc1c40b6e27aeea48f3dc166d11ef6e66929b4
@@ -271,6 +280,15 @@ entries:
   webstatus:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2022-11-04T17:03:06.425438768Z"
+    description: A Helm chart for Kubernetes
+    digest: b5d4c06376c6bb51db8c15251daf65c08f9e1b3352c66e56ceff96a6ae1770b5
+    name: webstatus
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.2.0/webstatus-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2022-11-03T03:19:27.585023243Z"
     description: A Helm chart for Kubernetes
     digest: 331c65326e70e8f666cd4ffc9eb1e0b63e9992fa2b540b15c6c98763769586a4
@@ -278,4 +296,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-03T03:19:27.585046743Z"
+generated: "2022-11-04T17:03:06.425467067Z"
