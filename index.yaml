@@ -3,6 +3,15 @@ entries:
   apigwms:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2022-11-10T03:36:02.689115629Z"
+    description: A Helm chart for Kubernetes
+    digest: 8ea59c85f29a3bb8e7d84889a9860d3d19857f5abcedf722867eba41222a83f2
+    name: apigwms
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/apigwms-0.4.1/apigwms-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2022-11-04T23:10:18.735812826Z"
     description: A Helm chart for Kubernetes
     digest: 1bb553cbf975f00836f16750dfa1b54ae47c37b03ec34630ab42ba5b518acc08
@@ -531,4 +540,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-10T03:33:09.603607425Z"
+generated: "2022-11-10T03:36:02.689278634Z"
