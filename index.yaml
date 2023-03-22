@@ -639,6 +639,15 @@ entries:
   webmvc:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-03-22T19:35:26.652103783Z"
+    description: A Helm chart for Kubernetes
+    digest: c2752aa55610c28721e9dd5312cebc5ad629273fbbe4dd6d38bd18350c12aa46
+    name: webmvc
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/webmvc-0.5.1/webmvc-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2023-03-22T17:59:53.175671924Z"
     description: A Helm chart for Kubernetes
     digest: fb004a9f0cb78d135c1d462972bcd3f75c93a8b2fb8a32747d70fde2596a4c5f
@@ -775,4 +784,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-22T18:37:19.739767729Z"
+generated: "2023-03-22T19:35:26.652233283Z"
