@@ -248,6 +248,15 @@ entries:
   identity-api:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-03-23T14:59:40.595943178Z"
+    description: A Helm chart for Kubernetes
+    digest: 3212995189b2fb591450c13a80d823fb801730c79907619ad24a35bc27c798f3
+    name: identity-api
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/identity-api-0.5.1/identity-api-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2023-03-22T17:59:50.939405116Z"
     description: A Helm chart for Kubernetes
     digest: 9fc9bb700497979ce99dd073551d3a095b316eb0777605462eec79b4cc17f0d9
@@ -784,4 +793,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-22T19:35:26.652233283Z"
+generated: "2023-03-23T14:59:40.596043478Z"
