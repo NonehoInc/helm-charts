@@ -1,0 +1,45 @@
+{{- $name := include "kv-certs.fullname" . -}}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: busybox
+  name:  "{{ $name }}-deployment"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+      - command:
+        - sleep
+        - "3600"
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        name: {{ .Chart.Name }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        volumeMounts:
+        - mountPath: /mnt/certs-store
+          name: secrets-store-certs
+          readOnly: true
+      volumes:
+      - csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: {{ template "kv-certs.fullname" . }}
+        name: secrets-store-certs
