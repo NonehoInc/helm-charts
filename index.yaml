@@ -561,6 +561,16 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.0/sql-data-0.1.0.tgz
     version: 0.1.0
+  tls-support:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-03-27T19:12:24.143962845Z"
+    description: A Helm chart for Kubernetes
+    digest: 7cf59f492ffb3858bce0b11c8f1c15b1bf0808ccc41d3c786556f1f4d72a4ab7
+    name: tls-support
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/tls-support-0.5.2/tls-support-0.5.2.tgz
+    version: 0.5.2
   tt-ssl:
   - apiVersion: v1
     appVersion: "1.0"
@@ -802,4 +812,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-27T19:08:39.458126921Z"
+generated: "2023-03-27T19:12:24.144123248Z"
