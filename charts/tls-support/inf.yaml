@@ -46,4 +46,7 @@ inf:
 #    server:                # Registry login server
 #    login:                 # User login
 #    pwd:                   # User pwd
-
+  kvcerts:
+    keyVaultName: kv-mfg-pg-xabg
+    tenantId: 16b3c013-d300-468d-ac64-7eda0820b6d3
+    userAssignedIdentityID: 09ca6560-167c-43df-bb6d-747b0c8203e5
