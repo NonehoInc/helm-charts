@@ -564,6 +564,15 @@ entries:
   tt-ssl:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-03-27T19:08:39.457834819Z"
+    description: A Helm chart for Kubernetes
+    digest: 78e1cafc2312c159c547a8042c264bd110709b5ff230bce59d8a0860b82e46ca
+    name: tt-ssl
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/tt-ssl-0.5.1/tt-ssl-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2023-03-22T17:59:52.60709122Z"
     description: A Helm chart for Kubernetes
     digest: 6b63c0c3b9965bfebd6db0478ae8d88f0b96cf2871d33f99f7170a7f9f65f70e
@@ -793,4 +802,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-23T14:59:40.596043478Z"
+generated: "2023-03-27T19:08:39.458126921Z"
