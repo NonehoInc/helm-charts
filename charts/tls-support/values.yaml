@@ -2,13 +2,30 @@ image:
   repository: busybox
   tag: latest
   pullPolicy: IfNotPresent
-keyVault:                             # Defines the Key Vault to use for secrets and certificates
-  name:                               # Key Vault Name
-  tenantId:                           # Key Vault tenant ID
-  kubernetesUserAssignedIdentityID:   # The managed identity for the CSI provider for Key Vault
+keyVaults:                            # Defines the Key Vault to use for secrets and certificates
+- name: ""                              # Key Vault Name
+  tenantId: ""                          # Key Vault tenant ID
+  kubernetesUserAssignedIdentityID: ""  # The managed identity for the CSI provider for Key Vault
   certificateObjects: []                # A list of certificates to load into secrets in the namespace
   # - objectName:                       # Certificate name in Key Vault
   #   secretName:                       # The name of the secret to be created
   secretObjects:   []                   # List of secrets to load    
   # - objectName:                       # The name of the secret in Key Vault
   #   secretName:                       # The name of the secret to be created
+
+# keyVaults:
+# - name: kv-mfg-pg-xabg
+#   tenantId: 16b3c013-d300-468d-ac64-7eda0820b6d3
+#   kubernetesUserAssignedIdentityID: 09ca6560-167c-43df-bb6d-747b0c8203e5
+#   certificateObjects:
+#   - objectName: eshop-prod-mfgakspg-com
+#     secretName: eshop-prod-mfgakspgcom-cert
+#   secretObjects:
+#   - objectName: somekey
+#     secretName: someSecret
+# - name: kv-mfg-pg-xabg-2
+#   tenantId: 16b3c013-d300-468d-ac64-7eda0820b6d3
+#   kubernetesUserAssignedIdentityID: 09ca6560-167c-43df-bb6d-747b0c8203e5
+#   certificateObjects:
+#   - objectName: eshop-prod-mfgakspg-com
+#     secretName: eshop-prod-mfgakspgcom-cert
