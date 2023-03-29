@@ -32,14 +32,14 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
-        {{- range $k := .Values.keyVaults }}
         volumeMounts:
+        {{- range $k := .Values.keyVaults }}
         - mountPath: "/mnt/kv-store-{{ $k.name }}"
           name: "kv-store-{{ $k.name }}"
           readOnly: true
         {{- end }}
-      {{- range $k := .Values.keyVaults }}
       volumes:
+      {{- range $k := .Values.keyVaults }}
       - csi:
           driver: secrets-store.csi.k8s.io
           readOnly: true
