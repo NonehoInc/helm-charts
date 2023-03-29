@@ -6,11 +6,9 @@ keyVault:                             # Defines the Key Vault to use for secrets
   name:                               # Key Vault Name
   tenantId:                           # Key Vault tenant ID
   kubernetesUserAssignedIdentityID:   # The managed identity for the CSI provider for Key Vault
-  certificateObjects:                 # A list of certificates to load into secrets in the namespace
-  - objectName:                       # Certificate name in Key Vault
-    secretName:                       # The name of the secret to be created
-  - objectName:                       # Certificate name in Key Vault
-    secretName:                       # The name of the secret to be created
-  secretObjects:                      # List of secrets to load    
-  - objectName:                       # The name of the secret in Key Vault
-    secretName:                       # The name of the secret to be created
+  certificateObjects: []                # A list of certificates to load into secrets in the namespace
+  # - objectName:                       # Certificate name in Key Vault
+  #   secretName:                       # The name of the secret to be created
+  secretObjects:   []                   # List of secrets to load    
+  # - objectName:                       # The name of the secret in Key Vault
+  #   secretName:                       # The name of the secret to be created
