@@ -564,6 +564,15 @@ entries:
   tls-support:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-03-29T17:06:35.017545807Z"
+    description: A Helm chart for Kubernetes
+    digest: 5f04fe8563290d46ffbd70974721be4cc5147ad1194f59db4e8946ef3082225d
+    name: tls-support
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/tls-support-0.5.7/tls-support-0.5.7.tgz
+    version: 0.5.7
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2023-03-29T16:49:12.549655056Z"
     description: A Helm chart for Kubernetes
     digest: b45d92ce54bc63f1733c96e1d171767927dca0c68a1df99147f4e1b92ba19cc6
@@ -848,4 +857,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-29T16:50:58.946258949Z"
+generated: "2023-03-29T17:06:35.018131821Z"
