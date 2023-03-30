@@ -369,6 +369,15 @@ entries:
   ordering-api:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-03-30T02:08:55.314029934Z"
+    description: A Helm chart for Kubernetes
+    digest: fba2366d576883edd5ba270387f3a32adb290f8d5d403751c13072ac7ae52a87
+    name: ordering-api
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/ordering-api-0.5.1/ordering-api-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2023-03-22T17:59:51.459778962Z"
     description: A Helm chart for Kubernetes
     digest: b28ab150c4def306393e6a6d62bb9a35ccd4e9c524d50b21d6aa601c6d9afbda
@@ -562,6 +571,15 @@ entries:
     - https://github.com/NonehoInc/helm-charts/releases/download/sql-data-0.1.0/sql-data-0.1.0.tgz
     version: 0.1.0
   tls-support:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-03-30T02:08:55.442640011Z"
+    description: A Helm chart for Kubernetes
+    digest: 2074f2a2d1242dad99eae8de6a70ec9f8ba1e979a47a650914abef02166c96fa
+    name: tls-support
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/tls-support-0.6.2/tls-support-0.6.2.tgz
+    version: 0.6.2
   - apiVersion: v1
     appVersion: "1.0"
     created: "2023-03-29T20:37:51.301883695Z"
@@ -884,4 +902,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-29T20:37:51.302149012Z"
+generated: "2023-03-30T02:08:55.443173415Z"
