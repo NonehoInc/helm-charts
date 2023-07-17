@@ -216,6 +216,15 @@ entries:
     version: 0.1.0
   eshop-on-dapr:
   - apiVersion: v2
+    created: "2023-07-17T19:28:25.811994801Z"
+    description: An eShopOnDapr Helm chart for k8s
+    digest: dde1a4dbb64a248b7a5edbd0045baa6f607c7b2abb716afa7178af1a714e1cc6
+    name: eshop-on-dapr
+    type: application
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/eshop-on-dapr-1.0.2/eshop-on-dapr-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2023-07-17T19:16:36.555974153Z"
     description: An eShopOnDapr Helm chart for k8s
     digest: 3395311e19715053cf06b84691f71db9e9931c863fb3de73bfe5dd7b35e50ec9
@@ -940,4 +949,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-17T19:16:36.55667606Z"
+generated: "2023-07-17T19:28:25.812457298Z"
