@@ -33,13 +33,17 @@ spec:
             cpu: 100m
             memory: 128Mi
         volumeMounts:
-        - mountPath: /mnt/certs-store
-          name: secrets-store-certs
+        {{- range $k := .Values.keyVaults }}
+        - mountPath: "/mnt/kv-store-{{ $k.name }}"
+          name: "kv-store-{{ $k.name }}"
           readOnly: true
+        {{- end }}
       volumes:
+      {{- range $k := .Values.keyVaults }}
       - csi:
           driver: secrets-store.csi.k8s.io
           readOnly: true
           volumeAttributes:
-            secretProviderClass: {{ template "kv-certs.fullname" . }}
-        name: secrets-store-certs
+            secretProviderClass: "{{ $name }}-provider-{{ $k.name }}"
+        name: "kv-store-{{ $k.name }}"
+      {{- end }}

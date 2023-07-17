@@ -8,7 +8,7 @@ inf:
     enabled: false          # True to enable TLS (set by deploy-all.ps1)
     issuer: ""              # cert-manager issuer to use for retrieving certs (set by deploy-all.ps1)
   sql:                      # inf.sql defines the sql server databases & logins
-#    host:  my-sql-server   # Uncomment to specify a custom sql-server to be used. By default "sql-data-<appname>" will be used  
+    host: ""                # Uncomment to specify a custom sql-server to be used. By default "sql-data-<appname>" will be used  
     common:
       user: sa              # SQL user
       pwd: Pass@word        # SQL pwd
@@ -37,7 +37,7 @@ inf:
   appinsights:
       key: ""               # App insights to use
   k8s:                      # inf.k8s defines Kubernetes cluster global config
-    dns:  "webspa-eshop.jmasengeshoservices.com"                # k8s external  DNS. This value or ip value MUST BE PROVIDED
+    dns:  "eshop.dev.mfgakspg.com"                # k8s external  DNS. This value or ip value MUST BE PROVIDED
     local: false            # True when deploying on "local K8s" provided by Docker Desktop.
   misc:                     # inf.misc contains miscellaneous configuration related to infrastructure
     useAzureStorage: false  # If catalog api uses azure storage or not

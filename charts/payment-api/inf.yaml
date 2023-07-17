@@ -37,7 +37,11 @@ inf:
   appinsights:
       key: ""               # App insights to use
   k8s:                      # inf.k8s defines Kubernetes cluster global config
+<<<<<<< HEAD
     dns: "webspa-eshop.jmasengeshoservices.com"                # k8s external  DNS. This value or ip value MUST BE PROVIDED
+=======
+    dns:  "eshop.dev.mfgakspg.com"                # k8s external  DNS. This value or ip value MUST BE PROVIDED
+>>>>>>> bf79371e1c250211274e6eea80b6f1332f5305cc
     local: false            # True when deploying on "local K8s" provided by Docker Desktop.
   misc:                     # inf.misc contains miscellaneous configuration related to infrastructure
     useAzureStorage: false  # If catalog api uses azure storage or not
