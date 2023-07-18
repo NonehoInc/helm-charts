@@ -59,7 +59,7 @@ spec:
         - command:
           - sleep
           - "3600"
-          image: busybox:latest
+          image: yauritux/busybox-curl
           name: busybox
           imagePullPolicy: IfNotPresent
           ports:
