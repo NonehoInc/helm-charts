@@ -6,7 +6,7 @@ metadata:
   labels:
     app: busybox
   name:  "{{ $name }}-deployment"
-  namespace: {{ default .Release.Namespace .Values.namespace }}
+  namespace: {{ default .Release.namespace .Values.namespace }}
 spec:
   replicas: 1
   selector:
