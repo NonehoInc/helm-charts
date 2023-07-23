@@ -13,20 +13,3 @@ keyVaults: []                               # Defines the Key Vault to use for s
 # #   secretObjects:   []                   # List of secrets to load    
 # #   # - objectName:                       # The name of the secret in Key Vault
 # #   #   secretName:                       # The name of the secret to be created
-# keyVaults:
-# - name: kv-mfg-pg-xabg
-#   tenantId: 16b3c013-d300-468d-ac64-7eda0820b6d3
-#   kubernetesUserAssignedIdentityID: 47730889-7b30-49d2-923f-631f388b4951
-#   certificateObjects:
-#   - objectName: eshop-prod-mfgakspg-com
-#     secretName: eshop-prod-mfgakspgcom-cert
-# - name: mfgpgprodkv001 
-#   tenantId: 16b3c013-d300-468d-ac64-7eda0820b6d3
-#   kubernetesUserAssignedIdentityID: 47730889-7b30-49d2-923f-631f388b4951
-#   secretObjects:
-#   - objectName: eshop-redis-constr
-#     secretName: eshop-redis-constr-secret
-#   - objectName: eshop-sql-password
-#     secretName: eshop-sql-password-secret
-#   - objectName: eshop-serviceBus-constr
-#     secretName: eshop-serviceBus-constr-secret
