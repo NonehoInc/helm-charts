@@ -1,3 +1,5 @@
+{{- $protocol := include "protocol" . -}}
+
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -9,8 +11,8 @@ metadata:
 data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
-  ApiGatewayUrlExternal: https://{{ .Values.hostName }}/gateway/
-  IdentityUrlExternal: https://{{ .Values.hostName }}/identity
+  ApiGatewayUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/gateway/
+  IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/identity
 
 ---
 
