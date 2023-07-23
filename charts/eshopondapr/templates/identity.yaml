@@ -11,8 +11,8 @@ data:
   ASPNETCORE_URLS: http://0.0.0.0:80
   PATH_BASE: /identity
   SeqServerUrl: http://seq
-  IssuerUrl: http://{{ .Values.hostName}}
-  BlazorClientUrlExternal: http://{{ .Values.hostName}}
+  IssuerUrl: https://{{ .Values.hostName}}
+  BlazorClientUrlExternal: https://{{ .Values.hostName}}
 
 ---
 
