@@ -29,7 +29,7 @@ spec:
           - name: ACCEPT_EULA
             value: "Y"
           - name: SEQ_API_CANONICALURI
-            value: "http://{{ .Values.hostName }}/log/"
+            value: "https://{{ .Values.hostName }}/log/"
 
 ---
 
@@ -87,7 +87,7 @@ metadata:
     app: eshop
     service: seq
   annotations:
-    nginx.ingress.kubernetes.io/permanent-redirect: "http://{{ .Values.hostName }}/log/"
+    nginx.ingress.kubernetes.io/permanent-redirect: "https://{{ .Values.hostName }}/log/"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
