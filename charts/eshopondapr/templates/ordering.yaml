@@ -1,3 +1,5 @@
+{{- $protocol := include "protocol" . -}}
+
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -10,7 +12,7 @@ data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
   IdentityUrl: http://identity-api
-  IdentityUrlExternal: https://{{ .Values.hostName}}:30008
+  IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName}}:30008
   SeqServerUrl: http://seq
 
 ---

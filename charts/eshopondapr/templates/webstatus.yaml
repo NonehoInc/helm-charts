@@ -1,3 +1,5 @@
+{{- $protocol := include "protocol" . -}}
+
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -123,7 +125,7 @@ metadata:
     app: eshop
     service: webstatus
   annotations:
-    nginx.ingress.kubernetes.io/permanent-redirect: "https://{{ .Values.hostName }}/status/"
+    nginx.ingress.kubernetes.io/permanent-redirect: "{{ $protocol }}://{{ .Values.hostName }}/status/"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
