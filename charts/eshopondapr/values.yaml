@@ -3,3 +3,8 @@ namespace: eshopondapr
 
 # Name of host where eShopOnDapr can be accessed.
 hostName: localhost
+# ingress:
+#   tls:
+#   - hosts:
+#       - localhost
+#     secretName: secret
