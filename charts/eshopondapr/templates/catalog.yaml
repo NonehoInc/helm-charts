@@ -56,23 +56,6 @@ spec:
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
-        - command:
-          - sleep
-          - "3600"
-          image: yauritux/busybox-curl
-          name: busybox
-          imagePullPolicy: IfNotPresent
-          ports:
-          - containerPort: 80
-          resources:
-            limits:
-              cpu: 250m
-              memory: 256Mi
-            requests:
-              cpu: 100m
-              memory: 128Mi
-
-
 ---
 
 kind: Service

@@ -3,6 +3,19 @@ namespace: eshopondapr
 
 # Name of host where eShopOnDapr can be accessed.
 hostName: localhost
+
+
+#blazorclient
+
+blazorclient:
+  image:
+    repository: eshopdapr/blazor.client
+    tag: latest
+    pullPolicy: IfNotPresent
+
+
+
+#ingress for blazor app, identity, and gateway
 ingress:
   tls: []
 #   - hosts:
