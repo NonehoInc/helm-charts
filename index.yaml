@@ -216,6 +216,15 @@ entries:
     version: 0.1.0
   eshop-on-dapr:
   - apiVersion: v2
+    created: "2023-07-27T22:54:54.58535203Z"
+    description: An eShopOnDapr Helm chart for k8s
+    digest: 70908d0c788c049dfcd024bf35ce1880bda1c6e9c17d9b3b52a9a06a4240b4c2
+    name: eshop-on-dapr
+    type: application
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/eshop-on-dapr-1.2.0/eshop-on-dapr-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
     created: "2023-07-25T20:00:12.784985519Z"
     description: An eShopOnDapr Helm chart for k8s
     digest: 1ee4478d7cbc03bea07f992c2d7fdc767733a73511877f0656f79f2db6fb9881
@@ -756,6 +765,15 @@ entries:
   tls-support:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-07-27T22:54:54.699134548Z"
+    description: A Helm chart for Kubernetes
+    digest: 3c20607baab8fecc0363fb910a9e669b8f99933052f63350b512108a9c6d2606
+    name: tls-support
+    urls:
+    - https://github.com/NonehoInc/helm-charts/releases/download/tls-support-1.1.1/tls-support-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2023-07-27T22:43:13.590106415Z"
     description: A Helm chart for Kubernetes
     digest: 35a30c48a21311b750f63a9874be49b42671781f26af2a5f56324e8a85f6a6ae
@@ -1166,4 +1184,4 @@ entries:
     urls:
     - https://github.com/NonehoInc/helm-charts/releases/download/webstatus-0.1.0/webstatus-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-27T22:43:13.590455718Z"
+generated: "2023-07-27T22:54:54.699902863Z"
