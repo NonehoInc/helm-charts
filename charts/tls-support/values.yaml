@@ -3,7 +3,7 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 namespace: ""
-keyVaults: []                               # Defines the Key Vault to use for secrets and certificates
+keyVaults:                                  # Defines the Key Vault to use for secrets and certificates
 # # - name: ""                              # Key Vault Name
 # #   tenantId: ""                          # Key Vault tenant ID
 # #   kubernetesUserAssignedIdentityID: ""  # The managed identity for the CSI provider for Key Vault
