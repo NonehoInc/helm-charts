@@ -54,7 +54,7 @@ ordering:
 #webshoppingagg
 webshoppingagg:
   image:
-    repository: eshopdapr/webshoppingagg.api
+    repository: eshopdapr/webshoppingagg
     tag: latest
     pullPolicy: IfNotPresent
     
