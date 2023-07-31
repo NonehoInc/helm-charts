@@ -10,6 +10,7 @@ data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
   SeqServerUrl: http://seq
+  APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
 
@@ -40,8 +41,8 @@ spec:
     spec:
       containers:
         - name: payment-api
-          image: eshopdapr/payment.api:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.payment.image.repository }}:{{ .Values.payment.image.tag }}
+          imagePullPolicy: {{ .Values.payment.image.pullPolicy }}
           ports:
             - name: http
               containerPort: 80

@@ -14,6 +14,7 @@ data:
   IdentityUrl: http://identity-api
   IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName}}/identity
   SeqServerUrl: http://seq
+  APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
 
@@ -44,8 +45,8 @@ spec:
     spec:
       containers:
         - name: basket-api
-          image: eshopdapr/basket.api:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.basket.image.repository }}:{{ .Values.basket.image.tag }}
+          imagePullPolicy: {{ .Values.basket.image.pullPolicy }}
           ports:
             - name: api-http
               containerPort: 80

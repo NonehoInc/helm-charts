@@ -14,6 +14,7 @@ data:
   IdentityUrl: http://identity-api
   IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName}}:30008
   SeqServerUrl: http://seq
+  APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
 
@@ -44,8 +45,8 @@ spec:
     spec:
       containers:
         - name: ordering-api
-          image: eshopdapr/ordering.api:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.ordering.image.repository }}:{{ .Values.ordering.image.tag }}
+          imagePullPolicy: {{ .Values.ordering.image.pullPolicy }}
           ports:
             - name: api-http
               containerPort: 80

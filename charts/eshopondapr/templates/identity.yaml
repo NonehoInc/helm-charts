@@ -15,6 +15,7 @@ data:
   SeqServerUrl: http://seq
   IssuerUrl: {{ $protocol }}://{{ .Values.hostName}}
   BlazorClientUrlExternal: {{ $protocol }}://{{ .Values.hostName}}
+  APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
 
@@ -45,8 +46,8 @@ spec:
     spec:
       containers:
         - name: identity-api
-          image: eshopdapr/identity.api:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.identity.image.repository }}:{{ .Values.identity.image.tag }}
+          imagePullPolicy: {{ .Values.identity.image.pullPolicy }}
           ports:
             - name: identity-http
               containerPort: 80

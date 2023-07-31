@@ -23,6 +23,33 @@ catalog:
     tag: latest
     pullPolicy: IfNotPresent
 
+#Identity API
+identity:
+  image:
+    repository: eshopdapr/identity.api
+    tag: latest
+    pullPolicy: IfNotPresent
+
+#Basket API
+identity:
+  image:
+    repository: eshopdapr/basket.api
+    tag: latest
+    pullPolicy: IfNotPresent
+
+#Payment API
+identity:
+  image:
+    repository: eshopdapr/payment.api
+    tag: latest
+    pullPolicy: IfNotPresent
+
+#Ordering API
+identity:
+  image:
+    repository: eshopdapr/ordering.api
+    tag: latest
+    pullPolicy: IfNotPresent
 
 #ingress for blazor app, identity, and gateway
 ingress:
