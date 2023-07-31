@@ -31,21 +31,21 @@ identity:
     pullPolicy: IfNotPresent
 
 #Basket API
-identity:
+basket:
   image:
     repository: eshopdapr/basket.api
     tag: latest
     pullPolicy: IfNotPresent
 
 #Payment API
-identity:
+payment:
   image:
     repository: eshopdapr/payment.api
     tag: latest
     pullPolicy: IfNotPresent
 
 #Ordering API
-identity:
+ordering:
   image:
     repository: eshopdapr/ordering.api
     tag: latest
