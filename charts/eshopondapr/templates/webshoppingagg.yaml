@@ -16,6 +16,7 @@ data:
   BasketUrlHC: http://basket-api/hc
   CatalogUrlHC: http://catalog-api/hc
   IdentityUrlHC: http://identity-api/hc
+  APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
 
@@ -45,8 +46,8 @@ spec:
     spec:
       containers:
         - name: webshoppingagg
-          image: eshopdapr/webshoppingagg:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.webshoppingagg.image.repository }}:{{ .Values.webshoppingagg.image.tag }}
+          imagePullPolicy: {{ .Values.webshoppingagg.image.pullPolicy }}
           ports:
             - name: api-http
               containerPort: 80

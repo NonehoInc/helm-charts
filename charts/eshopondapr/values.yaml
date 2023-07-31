@@ -51,6 +51,14 @@ ordering:
     tag: latest
     pullPolicy: IfNotPresent
 
+#webshoppingagg
+webshoppingagg:
+  image:
+    repository: eshopdapr/webshoppingagg.api
+    tag: latest
+    pullPolicy: IfNotPresent
+    
+
 #ingress for blazor app, identity, and gateway
 ingress:
   tls: []
