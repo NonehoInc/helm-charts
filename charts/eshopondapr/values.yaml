@@ -5,6 +5,9 @@ namespace: eshopondapr
 hostName: localhost
 
 
+#application insights
+aiConnectionString: ""
+
 #blazorclient
 
 blazorclient:
@@ -13,6 +16,12 @@ blazorclient:
     tag: latest
     pullPolicy: IfNotPresent
 
+#catalog API
+catalog:
+  image:
+    repository: eshopdapr/catalog.api
+    tag: latest
+    pullPolicy: IfNotPresent
 
 
 #ingress for blazor app, identity, and gateway

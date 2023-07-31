@@ -10,6 +10,7 @@ data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
   SeqServerUrl: http://seq
+  APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
 
@@ -40,8 +41,8 @@ spec:
     spec:
       containers:
         - name: catalog-api
-          image: eshopdapr/catalog.api:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}
+          imagePullPolicy: {{ .Values.catalog.image.pullPolicy }}
           ports:
             - containerPort: 80
               protocol: TCP
