@@ -7,9 +7,9 @@ hostName: localhost
 
 #application insights
 aiConnectionString: ""
+aiInstrumentationKey: ""
 
 #blazorclient
-
 blazorclient:
   image:
     repository: eshopdapr/blazor.client
