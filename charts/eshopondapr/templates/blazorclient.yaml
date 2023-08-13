@@ -11,8 +11,9 @@ metadata:
 data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
-  ApiGatewayUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/apim-shg/
+  ApiGatewayUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/gateway/
   IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/identity
+  ApiGatewayType: {{ .Values.gateway.apiGatewayType }}
 
 ---
 
