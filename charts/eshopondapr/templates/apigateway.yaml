@@ -42,8 +42,8 @@ spec:
     spec:
       containers:
       - name: apigateway
-        image: eshopdapr/webshoppingapigw:latest
-        imagePullPolicy: IfNotPresent
+        image: {{ .Values.gateway.envoy.image.repository }}:{{ .Values.gateway.envoy.image.tag }}
+        imagePullPolicy: {{ .Values.gateway.envoy.image.pullPolicy }}
         ports:
           - name: http
             containerPort: 80

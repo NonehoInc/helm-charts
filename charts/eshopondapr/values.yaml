@@ -60,8 +60,12 @@ webshoppingagg:
 
 #gateway
 gateway:
-  isUsingApim: false
-  apimGatewayEndPoint: ""
+  apiGatewayType: Envoy
+  envoy:
+    image:
+      repository: eshopdapr/webshoppingapigw
+      tag: latest
+      pullPolicy: IfNotPresent
     
 
 #ingress for blazor app, identity, and gateway
