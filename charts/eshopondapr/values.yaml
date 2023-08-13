@@ -57,6 +57,11 @@ webshoppingagg:
     repository: eshopdapr/webshoppingagg
     tag: latest
     pullPolicy: IfNotPresent
+
+#gateway
+gateway:
+  isUsingApim: false
+  apimGatewayEndPoint: ""
     
 
 #ingress for blazor app, identity, and gateway
