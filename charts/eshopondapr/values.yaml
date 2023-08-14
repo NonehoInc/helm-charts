@@ -69,7 +69,7 @@ gateway:
       pullPolicy: IfNotPresent
   apimShg:
     endpoint: ""
-    shg-token-secret: ""
+    shgTokenSecret: ""
     image:
       repository: mcr.microsoft.com/azure-api-management/gateway
       tag: v2

@@ -64,7 +64,7 @@ spec:
         - name: config.service.auth
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.gateway.apimShg.shg-token-secret }}
+              name: {{ .Values.gateway.apimShg.shgTokenSecret }}
               key: value
         envFrom:
         - configMapRef:
