@@ -64,7 +64,7 @@ spec:
         - name: config.service.auth
           valueFrom:
             secretKeyRef:
-              name: eshopondapr-apim-shg-token
+              name: {{ .Values.gateway.apimShg.shg-token-secret }}
               key: value
         envFrom:
         - configMapRef:
