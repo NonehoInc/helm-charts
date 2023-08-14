@@ -15,6 +15,9 @@ data:
   SeqServerUrl: http://seq
   IssuerUrl: {{ $protocol }}://{{ .Values.hostName}}
   BlazorClientUrlExternal: {{ $protocol }}://{{ .Values.hostName}}
+  BasketApiUrlExternal: {{ $protocol }}://{{ .Values.hostName}}
+  OrderingApiUrlExternal: {{ $protocol }}://{{ .Values.hostName}}
+  ShoppingAggregatorApiUrlExternal: {{ $protocol }}://{{ .Values.hostName}}
   APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
