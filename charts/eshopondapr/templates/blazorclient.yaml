@@ -11,9 +11,9 @@ metadata:
 data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
-  ApiGatewayUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/gateway/
+  ApiGatewayUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/{{  .Values.gateway.serviceName | default "gateway" | quote }}/
   IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/identity
-  ApiGatewayType: {{ .Values.gateway.apiGatewayType }}
+  ApiGatewayType: {{ .Values.gateway.type }}
 
 ---
 

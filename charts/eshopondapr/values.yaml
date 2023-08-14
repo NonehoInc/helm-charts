@@ -60,13 +60,19 @@ webshoppingagg:
 
 #gateway
 gateway:
-  apiGatewayType: Envoy
+  type: Envoy
+  serviceName: gateway
   envoy:
     image:
       repository: eshopdapr/webshoppingapigw
       tag: latest
       pullPolicy: IfNotPresent
-    
+  apimShg:
+    endpoint: ""
+    image:
+      repository: mcr.microsoft.com/azure-api-management/gateway
+      tag: v2
+
 
 #ingress for blazor app, identity, and gateway
 ingress:
