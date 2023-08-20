@@ -63,11 +63,13 @@ gateway:
   type: Envoy
   serviceName: gateway
   envoy:
+    enabled: true
     image:
       repository: eshopdapr/webshoppingapigw
       tag: latest
       pullPolicy: IfNotPresent
   apimShg:
+    enabled: false
     endpoint: ""
     shgTokenSecret: ""
     image:
