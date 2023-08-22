@@ -75,6 +75,9 @@ gateway:
     image:
       repository: mcr.microsoft.com/azure-api-management/gateway
       tag: v2
+  remoteGW: 
+    enabled: false
+    endpoint: ""
 
 
 #ingress for blazor app, identity, and gateway
