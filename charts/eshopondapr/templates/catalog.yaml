@@ -83,3 +83,41 @@ spec:
       name: dapr-grpc
   selector:
     service: catalog
+---
+{{- if eq .Values.catalog.ingress.enabled true }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: catalog-ingress
+  namespace: eshoponcontainers
+  labels:
+    app: eshop
+    service: catalog-api
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+{{- if .Values.ingress.tls }}
+  tls:
+  {{- range .Values.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ . }}
+      {{- end }}
+      secretName: {{ .secretName }}
+  {{- end }}
+{{- end }}
+  rules:
+  - host: {{ .Values.hostName }}
+    http:
+      paths: 
+      - path: /catalog(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: catalog-api
+            port: 
+              number: 80
+{{ end }}

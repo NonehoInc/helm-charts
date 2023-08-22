@@ -78,3 +78,42 @@ spec:
       targetPort: api-http
   selector:
     service: basket
+
+---
+{{- if eq .Values.basket.ingress.enabled true }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basket-ingress
+  namespace: eshoponcontainers
+  labels:
+    app: eshop
+    service: basket-api
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+{{- if .Values.ingress.tls }}
+  tls:
+  {{- range .Values.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ . }}
+      {{- end }}
+      secretName: {{ .secretName }}
+  {{- end }}
+{{- end }}
+  rules:
+  - host: {{ .Values.hostName }}
+    http:
+      paths: 
+      - path: /basket(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: basket-api
+            port: 
+              number: 80
+{{ end }}

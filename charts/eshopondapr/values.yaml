@@ -22,6 +22,8 @@ catalog:
     repository: eshopdapr/catalog.api
     tag: latest
     pullPolicy: IfNotPresent
+  ingress:
+    enabled: false
 
 #Identity API
 identity:
@@ -36,6 +38,8 @@ basket:
     repository: eshopdapr/basket.api
     tag: latest
     pullPolicy: IfNotPresent
+  ingress:
+    enabled: false
 
 #Payment API
 payment:
@@ -50,6 +54,8 @@ ordering:
     repository: eshopdapr/ordering.api
     tag: latest
     pullPolicy: IfNotPresent
+  ingress:
+    enabled: false
 
 #webshoppingagg
 webshoppingagg:
