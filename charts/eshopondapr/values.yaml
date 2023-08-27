@@ -31,7 +31,7 @@ identity:
     repository: eshopdapr/identity.api
     tag: latest
     pullPolicy: IfNotPresent
-  externalUrl: https://eshop.client.mfgakspg.com/
+  externalUrl: https://eshop.client.mfgakspg.com
 
 #Basket API
 basket:
