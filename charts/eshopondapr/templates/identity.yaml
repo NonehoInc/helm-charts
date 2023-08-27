@@ -13,8 +13,8 @@ data:
   ASPNETCORE_URLS: http://0.0.0.0:80
   PATH_BASE: /identity
   SeqServerUrl: http://seq
-  IssuerUrl: https://{{ .Values.identity.externalUrl }} #{{ $protocol }}://{{ .Values.hostName}}
-  BlazorClientUrlExternal: https://{{ .Values.identity.externalUrl }} #{{ $protocol }}://{{ .Values.hostName}}
+  IssuerUrl: {{ .Values.identity.externalUrl }} #{{ $protocol }}://{{ .Values.hostName}}
+  BlazorClientUrlExternal: {{ .Values.identity.externalUrl }} #{{ $protocol }}://{{ .Values.hostName}}
   APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
