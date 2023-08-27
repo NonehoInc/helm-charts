@@ -14,7 +14,7 @@ data:
   PATH_BASE: /identity
   SeqServerUrl: http://seq
   IssuerUrl: {{ $protocol }}://{{ .Values.hostName}}
-  BlazorClientUrlExternal: {{ $protocol }}://{{ .Values.hostName}}
+  BlazorClientUrlExternal: https://{{ .Values.gateway.remoteGW.endpoint }}/ #{{ $protocol }}://{{ .Values.hostName}}
   APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
 ---
