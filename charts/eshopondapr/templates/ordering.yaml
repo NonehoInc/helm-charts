@@ -12,7 +12,7 @@ data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
   IdentityUrl: http://identity-api
-  IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName}}:30008
+  IdentityUrlExternal: {{ .Values.identity.externalUrl }}/identity #{{ $protocol }}://{{ .Values.hostName}}:30008
   SeqServerUrl: http://seq
   APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
