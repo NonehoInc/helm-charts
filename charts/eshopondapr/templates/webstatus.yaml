@@ -91,7 +91,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.className }}
 {{- if .Values.ingress.tls }}
   tls:
   {{- range .Values.ingress.tls }}
@@ -128,7 +128,7 @@ metadata:
     nginx.ingress.kubernetes.io/permanent-redirect: "{{ $protocol }}://{{ .Values.hostName }}/status/"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.className }}
 {{- if .Values.ingress.tls }}
   tls:
   {{- range .Values.ingress.tls }}

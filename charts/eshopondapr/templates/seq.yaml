@@ -63,7 +63,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: "/$1"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.className }}
 {{- if .Values.ingress.tls }}
   tls:
   {{- range .Values.ingress.tls }}
@@ -100,7 +100,7 @@ metadata:
     nginx.ingress.kubernetes.io/permanent-redirect: "https://{{ .Values.hostName }}/log/"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.className }}
 {{- if .Values.ingress.tls }}
   tls:
   {{- range .Values.ingress.tls }}
