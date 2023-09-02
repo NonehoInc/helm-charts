@@ -89,7 +89,7 @@ gateway:
 
 #ingress for blazor app, identity, and gateway
 ingress:
-  className: nginx
+  classType: nginx
   tls: []
 #   - hosts:
 #       - localhost

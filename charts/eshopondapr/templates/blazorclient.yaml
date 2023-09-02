@@ -15,6 +15,7 @@ data:
   ApiGatewayUrlExternal: https://{{ .Values.gateway.remoteGW.endpoint }}/
   # IdentityUrlExternal: {{ $protocol }}://{{ .Values.hostName }}/identity
   IdentityUrlExternal: {{ .Values.identity.externalUrl }}/identity
+  OrderNotificationHubUrlExternal: {{ .Values.identity.externalUrl }}/ordering  #To be updated
   ApiGatewayType: {{ .Values.gateway.type }}
   APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
