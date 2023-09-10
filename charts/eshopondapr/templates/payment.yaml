@@ -50,6 +50,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: payment-cm
+          resources:
+            requests:
+              memory: "200Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
           readinessProbe:
             httpGet:
               path: /hc

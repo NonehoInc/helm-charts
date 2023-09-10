@@ -54,6 +54,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: ordering-cm
+          resources:
+            requests:
+              memory: "400Mi"
+              cpu: "250m"
+            limits:
+              memory: "2048Mi"
+              cpu: "500m"
           readinessProbe:
             httpGet:
               path: /hc
