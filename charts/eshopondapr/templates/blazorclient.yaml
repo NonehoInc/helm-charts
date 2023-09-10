@@ -51,6 +51,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: blazorclient-cm
+          resources:
+            requests:
+              memory: "126Mi"
+              cpu: "250m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"
           readinessProbe:
             httpGet:
               path: /hc

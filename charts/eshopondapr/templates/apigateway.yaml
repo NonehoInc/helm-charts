@@ -59,6 +59,14 @@ spec:
           - name: daprgrpc
             containerPort: 50001
             protocol: TCP
+        resources:
+          requests:
+            memory: "20Mi"
+            cpu: "50m"
+          limits:
+            memory: "100Mi"
+            cpu: "100m"
+
         envFrom:
           - configMapRef:
               name: apigateway-cm
