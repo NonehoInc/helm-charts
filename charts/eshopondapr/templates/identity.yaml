@@ -56,7 +56,7 @@ spec:
             - configMapRef:
                 name: identity-cm
           resources:
-            {{- toYaml .Values.basket.resources | nindent 12 }}
+            {{- toYaml .Values.identity.resources | nindent 12 }}
           readinessProbe:
             httpGet:
               path: /hc

@@ -72,6 +72,38 @@ webshoppingagg:
     pullPolicy: IfNotPresent
   resources: {}
 
+#redis
+redis:
+  resources: {}
+
+#sqldata
+sqldata:
+  resources: {}
+
+#rabbitmq
+rabbitmq:
+  resources: {}
+
+#seq
+seq:
+  resources: {}
+
+#zipkin
+zipkin:
+  resources: {}
+
+#webstatus
+webstatus:
+  resources: {}
+
+#maildev:
+mailserver:
+  resources: {}
+
+#opentelemetry
+opentelemetry:
+  resources: {}
+
 #gateway
 gateway:
   type: Envoy

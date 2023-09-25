@@ -58,6 +58,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: webstatus-cm
+          resources:
+            {{- toYaml .Values.webstatus.resources | nindent 12 }}
 
 ---
 

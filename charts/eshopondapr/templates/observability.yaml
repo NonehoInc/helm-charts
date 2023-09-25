@@ -79,12 +79,14 @@ spec:
           - "/otelcol-contrib"
           - "--config=/conf/otel-collector-config.yaml"
         resources:
-          limits:
-            cpu: 1
-            memory: 2Gi
-          requests:
-            cpu: 200m
-            memory: 400Mi
+          {{- toYaml .Values.opentelemetry.resources | nindent 12 }} 
+        # resources:
+        #   limits:
+        #     cpu: 1
+        #     memory: 2Gi
+        #   requests:
+        #     cpu: 200m
+        #     memory: 400Mi
         ports:
           - containerPort: 9411 # Default endpoint for Zipkin receiver.
         volumeMounts:

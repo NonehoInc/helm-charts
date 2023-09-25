@@ -30,6 +30,8 @@ spec:
             value: "Y"
           - name: SEQ_API_CANONICALURI
             value: "https://{{ .Values.hostName }}/log/"
+        resources:
+          {{- toYaml .Values.seq.resources | nindent 12 }}
 
 ---
 

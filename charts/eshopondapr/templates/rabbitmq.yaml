@@ -25,7 +25,8 @@ spec:
           - name: rabbitmq-http
             containerPort: 5672
             protocol: TCP
-
+        resources:
+          {{- toYaml .Values.rabbitmq.resources | nindent 12 }}
 ---
 
 kind: Service

@@ -62,7 +62,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
-            {{- toYaml .Values.basket.resources | nindent 12 }}
+            {{- toYaml .Values.webshoppingagg.resources | nindent 12 }}
 
 ---
 

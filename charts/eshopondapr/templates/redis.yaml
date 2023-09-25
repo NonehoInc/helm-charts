@@ -27,6 +27,8 @@ spec:
           - name: http
             containerPort: 6379
             protocol: TCP
+        resources:
+          {{- toYaml .Values.redis.resources | nindent 12 }}
 
 ---
 

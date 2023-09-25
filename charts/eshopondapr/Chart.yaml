@@ -2,4 +2,4 @@ apiVersion: v2
 name: eshop-on-dapr
 description: An eShopOnDapr Helm chart for k8s
 type: application
-version: 3.6
+version: 3.7

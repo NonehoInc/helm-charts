@@ -30,6 +30,8 @@ spec:
               value: Pass@word
             - name: ACCEPT_EULA
               value: "Y"
+          resources:
+            {{- toYaml .Values.sqldata.resources | nindent 12 }}
 
 ---
 
