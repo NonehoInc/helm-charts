@@ -61,6 +61,8 @@ spec:
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
+          resources:
+            {{- toYaml .Values.basket.resources | nindent 12 }}
 
 ---
 

@@ -15,6 +15,7 @@ blazorclient:
     repository: eshopdapr/blazor.client
     tag: latest
     pullPolicy: IfNotPresent
+  resources: {}
 
 #catalog API
 catalog:
@@ -24,6 +25,7 @@ catalog:
     pullPolicy: IfNotPresent
   ingress:
     enabled: false
+  resources: {}
 
 #Identity API
 identity:
@@ -32,6 +34,7 @@ identity:
     tag: latest
     pullPolicy: IfNotPresent
   externalUrl: https://eshop.client.mfgakspg.com
+  resources: {}
 
 #Basket API
 basket:
@@ -41,6 +44,7 @@ basket:
     pullPolicy: IfNotPresent
   ingress:
     enabled: false
+  resources: {}
 
 #Payment API
 payment:
@@ -48,6 +52,7 @@ payment:
     repository: eshopdapr/payment.api
     tag: latest
     pullPolicy: IfNotPresent
+  resources: {}
 
 #Ordering API
 ordering:
@@ -57,6 +62,7 @@ ordering:
     pullPolicy: IfNotPresent
   ingress:
     enabled: false
+  resources: {}
 
 #webshoppingagg
 webshoppingagg:
@@ -64,6 +70,7 @@ webshoppingagg:
     repository: eshopdapr/webshoppingagg
     tag: latest
     pullPolicy: IfNotPresent
+  resources: {}
 
 #gateway
 gateway:

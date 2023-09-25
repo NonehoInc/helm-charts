@@ -61,13 +61,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
-            requests:
-              memory: "200Mi"
-              cpu: "250m"
-            limits:
-              memory: "500Mi"
-              cpu: "500m"
-
+            {{- toYaml .Values.basket.resources | nindent 12 }}
 ---
 
 apiVersion: v1

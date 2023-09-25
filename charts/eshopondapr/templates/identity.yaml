@@ -56,12 +56,7 @@ spec:
             - configMapRef:
                 name: identity-cm
           resources:
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
-            limits:
-              memory: "1024Mi"
-              cpu: "500m"
+            {{- toYaml .Values.basket.resources | nindent 12 }}
           readinessProbe:
             httpGet:
               path: /hc
