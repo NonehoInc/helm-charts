@@ -17,6 +17,8 @@ spec:
         app: eshop
         service: sqldata
     spec:
+      securityContext:
+        fsGroup: 10001
       containers:
         - name: sqldata
           image: mcr.microsoft.com/azure-sql-edge
