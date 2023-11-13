@@ -49,7 +49,7 @@ spec:
           imagePullPolicy: {{ .Values.ordering.image.pullPolicy }}
           ports:
             - name: api-http
-              containerPort: 8080
+              containerPort: 80
               protocol: TCP
           envFrom:
             - configMapRef:
@@ -59,7 +59,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /hc
-              port: 8080
+              port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
 
