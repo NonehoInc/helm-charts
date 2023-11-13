@@ -29,6 +29,12 @@ spec:
             protocol: TCP
         resources:
           {{- toYaml .Values.redis.resources | nindent 12 }}
+        securityContext:
+          privileged: false
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          runAsUser: 1000        
 
 ---
 
