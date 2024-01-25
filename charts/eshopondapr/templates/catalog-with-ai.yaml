@@ -11,9 +11,17 @@ data:
   ASPNETCORE_URLS: http://0.0.0.0:80
   SeqServerUrl: http://seq
   APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
+  PICS_FOLDER: StoreData
+  DATA_FOLDER: StoreData
+  LocalImageFolder: StoreData
+  AzureOpenAiServiceEndpoint: {{ .Values.azureOpenAiServiceEndpoint }}
+  AIProducctGeneratorPrompt: Suggest 5 Azure cloud native services. 
+                             For each, create two merchandise items that could be sold on an ecommerce website store. 
+                             Each merchandise should have a short cool name, description and type like mug, shirt or hoodie. Use the description and create a prompt for each merchandise item that can be used to generate an image. The prompt should be a short sentence that describes the merchandise item. 
+                             All the background for the image should be transparent. Return a valid json object called suggestions containing each suggestion with a random integer id [id], a name [name], and a list of uniquely identifiable merchandise items [merchandises] for that suggestion. 
+                             Each merchandize has the service name [brand], name [name], description [description], a prompt [prompt], a type [type], a global random unique integer id [id], a decimal price [price] and an integer stock [availableStock] to each merchandise item.
 
 ---
-
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -22,6 +30,7 @@ metadata:
   labels:
     app: eshop
     service: catalog
+    azure.workload.identity/use: "true"
 spec:
   replicas: 1
   selector:
@@ -32,6 +41,7 @@ spec:
       labels:
         app: eshop
         service: catalog
+        azure.workload.identity/use: "true"
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "catalog-api"
@@ -39,9 +49,24 @@ spec:
         dapr.io/config: "dapr-config"
         dapr.io/log-as-json: "true"
     spec:
+      serviceAccountName: eshop-sa
+      initContainers:
+        - name: catalog-product-gen
+          image: jmaksdemoacr01.azurecr.io/catalog.aigen:1.0.8
+          imagePullPolicy: IfNotPresent
+          #add env from a secret called azureopenai-secret
+          envFrom:
+            # - secretRef:
+            #     name: azureopenai-credentials       
+            - configMapRef:
+                name: catalog-cm
+          volumeMounts:
+            - name: storedata
+              mountPath: /app/StoreData
       containers:
         - name: catalog-api
-          image: {{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}
+          # image: {{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}
+          image: jmaksdemoacr01.azurecr.io/catalog.api:1.0.6.ai
           imagePullPolicy: {{ .Values.catalog.image.pullPolicy }}
           ports:
             - containerPort: 80
@@ -59,6 +84,16 @@ spec:
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
+          volumeMounts:
+            - name: storedata
+              mountPath: /app/StoreData
+      volumes:
+        # - name: storedata
+        #   persistentVolumeClaim:
+        #     claimName: {{ .Values.catalog.catalogDataPVC }}
+        - name: storedata
+          emptyDir:
+            sizeLimit: 1Gi
 ---
 
 kind: Service
