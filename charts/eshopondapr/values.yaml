@@ -8,6 +8,7 @@ hostName: localhost
 #application insights
 aiConnectionString: ""
 aiInstrumentationKey: ""
+azureOpenAiServiceEndpoint: ""
 
 #blazorclient
 blazorclient:

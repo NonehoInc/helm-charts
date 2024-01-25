@@ -1,125 +1,125 @@
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: catalog-cm
-  namespace: {{ .Values.namespace }}
-  labels:
-    app: eshop
-    service: catalog
-data:
-  ASPNETCORE_ENVIRONMENT: Development
-  ASPNETCORE_URLS: http://0.0.0.0:80
-  SeqServerUrl: http://seq
-  APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
+# kind: ConfigMap
+# apiVersion: v1
+# metadata:
+#   name: catalog-cm
+#   namespace: {{ .Values.namespace }}
+#   labels:
+#     app: eshop
+#     service: catalog
+# data:
+#   ASPNETCORE_ENVIRONMENT: Development
+#   ASPNETCORE_URLS: http://0.0.0.0:80
+#   SeqServerUrl: http://seq
+#   APPLICATIONINSIGHTS_CONNECTION_STRING: {{ .Values.aiConnectionString }}
 
----
+# ---
 
-kind: Deployment
-apiVersion: apps/v1
-metadata:
-  name: catalog
-  namespace: {{ .Values.namespace }}
-  labels:
-    app: eshop
-    service: catalog
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      service: catalog
-  template:
-    metadata:
-      labels:
-        app: eshop
-        service: catalog
-      annotations:
-        dapr.io/enabled: "true"
-        dapr.io/app-id: "catalog-api"
-        dapr.io/app-port: "80"
-        dapr.io/config: "dapr-config"
-        dapr.io/log-as-json: "true"
-    spec:
-      containers:
-        - name: catalog-api
-          image: {{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}
-          imagePullPolicy: {{ .Values.catalog.image.pullPolicy }}
-          ports:
-            - containerPort: 80
-              protocol: TCP
-            - containerPort: 81
-              protocol: TCP
-          envFrom:
-            - configMapRef:
-                name: catalog-cm
-          resources:
-            {{- toYaml .Values.catalog.resources | nindent 12 }}
-          readinessProbe:
-            httpGet:
-              path: /hc
-              port: 80
-            initialDelaySeconds: 5
-            periodSeconds: 5
----
+# kind: Deployment
+# apiVersion: apps/v1
+# metadata:
+#   name: catalog
+#   namespace: {{ .Values.namespace }}
+#   labels:
+#     app: eshop
+#     service: catalog
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       service: catalog
+#   template:
+#     metadata:
+#       labels:
+#         app: eshop
+#         service: catalog
+#       annotations:
+#         dapr.io/enabled: "true"
+#         dapr.io/app-id: "catalog-api"
+#         dapr.io/app-port: "80"
+#         dapr.io/config: "dapr-config"
+#         dapr.io/log-as-json: "true"
+#     spec:
+#       containers:
+#         - name: catalog-api
+#           image: {{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}
+#           imagePullPolicy: {{ .Values.catalog.image.pullPolicy }}
+#           ports:
+#             - containerPort: 80
+#               protocol: TCP
+#             - containerPort: 81
+#               protocol: TCP
+#           envFrom:
+#             - configMapRef:
+#                 name: catalog-cm
+#           resources:
+#             {{- toYaml .Values.catalog.resources | nindent 12 }}
+#           readinessProbe:
+#             httpGet:
+#               path: /hc
+#               port: 80
+#             initialDelaySeconds: 5
+#             periodSeconds: 5
+# ---
 
-kind: Service
-apiVersion: v1
-metadata:
-  name: catalog-api
-  namespace: {{ .Values.namespace }}
-  labels:
-    app: eshop
-    service: catalog
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-      name: http
-    - port: 3500
-      targetPort: 3500
-      protocol: TCP
-      name: dapr-http
-    - port: 50001
-      targetPort: 50001
-      protocol: TCP
-      name: dapr-grpc
-  selector:
-    service: catalog
----
-{{- if eq .Values.catalog.ingress.enabled true }}
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: catalog-ingress
-  namespace: eshoponcontainers
-  labels:
-    app: eshop
-    service: catalog-api
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-spec:
-  ingressClassName: {{ .Values.ingress.className }}
-{{- if .Values.ingress.tls }}
-  tls:
-  {{- range .Values.ingress.tls }}
-    - hosts:
-      {{- range .hosts }}
-        - {{ . }}
-      {{- end }}
-      secretName: {{ .secretName }}
-  {{- end }}
-{{- end }}
-  rules:
-  - host: {{ .Values.hostName }}
-    http:
-      paths: 
-      - path: /catalog(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: catalog-api
-            port: 
-              number: 80
-{{ end }}
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: catalog-api
+#   namespace: {{ .Values.namespace }}
+#   labels:
+#     app: eshop
+#     service: catalog
+# spec:
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#       protocol: TCP
+#       name: http
+#     - port: 3500
+#       targetPort: 3500
+#       protocol: TCP
+#       name: dapr-http
+#     - port: 50001
+#       targetPort: 50001
+#       protocol: TCP
+#       name: dapr-grpc
+#   selector:
+#     service: catalog
+# ---
+# {{- if eq .Values.catalog.ingress.enabled true }}
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: catalog-ingress
+#   namespace: eshoponcontainers
+#   labels:
+#     app: eshop
+#     service: catalog-api
+#   annotations:
+#     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+#     nginx.ingress.kubernetes.io/use-regex: "true"
+#     nginx.ingress.kubernetes.io/rewrite-target: /$2
+# spec:
+#   ingressClassName: {{ .Values.ingress.className }}
+# {{- if .Values.ingress.tls }}
+#   tls:
+#   {{- range .Values.ingress.tls }}
+#     - hosts:
+#       {{- range .hosts }}
+#         - {{ . }}
+#       {{- end }}
+#       secretName: {{ .secretName }}
+#   {{- end }}
+# {{- end }}
+#   rules:
+#   - host: {{ .Values.hostName }}
+#     http:
+#       paths: 
+#       - path: /catalog(/|$)(.*)
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: catalog-api
+#             port: 
+#               number: 80
+# {{ end }}
