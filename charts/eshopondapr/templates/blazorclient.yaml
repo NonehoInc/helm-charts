@@ -115,3 +115,26 @@ spec:
             name: blazor-client
             port: 
               number: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: blazorclient-ingress-agc
+  namespace: {{ .Values.namespace }}
+  annotations:
+    alb.networking.azure.io/alb-id: {{ .Values.agc.resourceId }}
+    alb.networking.azure.io/alb-frontend: {{ .Values.agc.frontend }}
+spec:
+  ingressClassName: azure-alb-external
+  rules:
+    - host: contoso.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: blazor-client
+                port:
+                  number: 80
