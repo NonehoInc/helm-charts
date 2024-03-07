@@ -52,7 +52,7 @@ spec:
       serviceAccountName: eshop-sa
       initContainers:
         - name: catalog-product-gen
-          image: jmaksdemoacr01.azurecr.io/catalog.aigen:1.0.8
+          image: {{ .Values.catalog.ai-image-gen.image.repository }}:{{ .Values.catalog.ai-image-gen.image.tag }}
           imagePullPolicy: IfNotPresent
           #add env from a secret called azureopenai-secret
           envFrom:
@@ -65,8 +65,7 @@ spec:
               mountPath: /app/StoreData
       containers:
         - name: catalog-api
-          # image: {{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}
-          image: jmaksdemoacr01.azurecr.io/catalog.api:1.0.6.ai
+          image: {{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}
           imagePullPolicy: {{ .Values.catalog.image.pullPolicy }}
           ports:
             - containerPort: 80
