@@ -52,7 +52,7 @@ spec:
       serviceAccountName: eshop-sa
       initContainers:
         - name: catalog-product-gen
-          image: {{ .Values.catalog.ai-image-gen.image.repository }}:{{ .Values.catalog.ai-image-gen.image.tag }}
+          image: {{ .Values.catalog.ai.image.repository }}:{{ .Values.catalog.ai.image.tag }}
           imagePullPolicy: IfNotPresent
           #add env from a secret called azureopenai-secret
           envFrom:
