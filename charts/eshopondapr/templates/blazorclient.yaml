@@ -127,8 +127,16 @@ metadata:
     alb.networking.azure.io/alb-frontend: {{ .Values.agc.frontend }}
 spec:
   ingressClassName: azure-alb-external
+  tls:
+  {{- range .Values.agc.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ . }}
+      {{- end }}
+      secretName: {{ .secretName }}
+  {{- end }}
   rules:
-    - host: contoso.com
+    - host: eshop.client-agc.mfgakspg.com
       http:
         paths:
           - path: /
