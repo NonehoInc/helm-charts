@@ -86,7 +86,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: basket-ingress
-  namespace: eshoponcontainers
+  namespace: {{ .Values.namespace }}
   labels:
     app: eshop
     service: basket-api
