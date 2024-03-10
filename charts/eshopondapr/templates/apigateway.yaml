@@ -113,6 +113,8 @@ metadata:
     app: eshop
     service: apigateway
   annotations:
+    alb.networking.azure.io/alb-id: {{ .Values.agc.resourceId }}
+    alb.networking.azure.io/alb-frontend: {{ .Values.agc.frontend }}
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
@@ -132,7 +134,7 @@ spec:
   - host: {{ .Values.hostName }}
     http:
       paths: 
-      - path: /gateway(/|$)(.*)
+      - path: /gateway/
         pathType: Prefix
         backend:
           service:
