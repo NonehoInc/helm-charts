@@ -130,6 +130,8 @@ metadata:
     app: eshop
     service: catalog-api
   annotations:
+    alb.networking.azure.io/alb-id: {{ .Values.agc.resourceId }}
+    alb.networking.azure.io/alb-frontend: {{ .Values.agc.frontend }}
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2

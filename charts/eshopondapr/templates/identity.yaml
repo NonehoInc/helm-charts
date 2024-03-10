@@ -92,6 +92,8 @@ metadata:
     app: eshop
     service: identity
   annotations:
+    alb.networking.azure.io/alb-id: {{ .Values.agc.resourceId }}
+    alb.networking.azure.io/alb-frontend: {{ .Values.agc.frontend }}
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
