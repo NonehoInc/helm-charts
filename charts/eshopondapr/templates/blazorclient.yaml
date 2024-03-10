@@ -78,9 +78,8 @@ spec:
       targetPort: client-http
   selector:
     service: blazorclient
-
 ---
-
+{{- if eq .Values.ingress.class "nginx" -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -115,20 +114,22 @@ spec:
             name: blazor-client
             port: 
               number: 80
+{{- end }}
 
 ---
+{{- if eq .Values.ingress.class "azure-alb-external" -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: blazorclient-ingress-agc
+  name: blazorclient-ingress
   namespace: {{ .Values.namespace }}
   annotations:
     alb.networking.azure.io/alb-id: {{ .Values.agc.resourceId }}
     alb.networking.azure.io/alb-frontend: {{ .Values.agc.frontend }}
 spec:
-  ingressClassName: azure-alb-external
+  ingressClassName: .Values.ingress.class
   tls:
-  {{- range .Values.agc.ingress.tls }}
+  {{- range .Values.ingress.tls }}
     - hosts:
       {{- range .hosts }}
         - {{ . }}
@@ -136,7 +137,7 @@ spec:
       secretName: {{ .secretName }}
   {{- end }}
   rules:
-    - host: eshop.client-agc.mfgakspg.com
+    - host: {{ .Values.hostName }}
       http:
         paths:
           - path: /
@@ -146,3 +147,7 @@ spec:
                 name: blazor-client
                 port:
                   number: 80
+{{- end }}
+
+
+
