@@ -1,136 +1,216 @@
-# K8s namespace to deploy eShopOnDapr in.
-namespace: eshopondapr
-
-# Name of host where eShopOnDapr can be accessed.
-hostName: localhost
-
-
-#application insights
-aiConnectionString: ""
-aiInstrumentationKey: ""
-azureOpenAiServiceEndpoint: ""
-
-#blazorclient
+namespace: eshoponcontainers-agc
+hostName: eshop.client-agc.mfgakspg.com
+aiConnectionString: "InstrumentationKey=b6c62fb0-1e40-4311-99d8-a4ad66d4fc4d;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/"
+aiInstrumentationKey: b6c62fb0-1e40-4311-99d8-a4ad66d4fc4d
+azureOpenAiServiceEndpoint: https://eshop-eastus-ai-service.openai.azure.com/
 blazorclient:
   image:
-    repository: eshopdapr/blazor.client
-    tag: latest
+    repository: aksplaygroundglobalacr.azurecr.io/blazor.client
+    tag: 1.0.66
     pullPolicy: IfNotPresent
-  resources: {}
-
-#catalog API
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 catalog:
   image:
-    repository: eshopdapr/catalog.api
-    tag: latest
+    repository: aksplaygroundglobalacr.azurecr.io/catalog.api
+    tag: 1.0.8.ai
     pullPolicy: IfNotPresent
   ingress:
-    enabled: false
-  resources: {}
-
-#Identity API
-identity:
-  image:
-    repository: eshopdapr/identity.api
-    tag: latest
-    pullPolicy: IfNotPresent
-  externalUrl: https://eshop.client.mfgakspg.com
-  resources: {}
-
-#Basket API
+    enabled: true
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
+  ai:
+    image: 
+      repository: aksplaygroundglobalacr.azurecr.io/catalog.aigen
+      tag: 1.0.9
+      pullPolicy: IfNotPresent
+    
 basket:
   image:
-    repository: eshopdapr/basket.api
-    tag: latest
+    repository: aksplaygroundglobalacr.azurecr.io/basket.api
+    tag: 1.0.11
     pullPolicy: IfNotPresent
   ingress:
-    enabled: false
-  resources: {}
-
-#Payment API
+    enabled: true
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 payment:
   image:
-    repository: eshopdapr/payment.api
-    tag: latest
+    repository: aksplaygroundglobalacr.azurecr.io/payment.api
+    tag: 1.0.9
+    pullPolicy: IfNotPresent 
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
+identity:
+  image:
+    repository: aksplaygroundglobalacr.azurecr.io/identity.api
+    tag: 1.0.16
     pullPolicy: IfNotPresent
-  resources: {}
-
-#Ordering API
+  externalUrl: https://eshop.client-agc.mfgakspg.com
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 ordering:
   image:
-    repository: eshopdapr/ordering.api
-    tag: latest
+    repository: aksplaygroundglobalacr.azurecr.io/ordering.api
+    tag: 1.0.10
     pullPolicy: IfNotPresent
   ingress:
-    enabled: false
-  resources: {}
-
-#webshoppingagg
+    enabled: true
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 webshoppingagg:
   image:
-    repository: eshopdapr/webshoppingagg
-    tag: latest
-    pullPolicy: IfNotPresent
-  resources: {}
+    repository: aksplaygroundglobalacr.azurecr.io/webshoppingagg
+    tag: 1.0.6
+    pullPolicy: IfNotPresent 
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
+gateway:
+  type: REMOTE
+  serviceName: gateway
+  envoy:
+    enable: true
+    image:
+      repository: aksplaygroundglobalacr.azurecr.io/webshoppingapigw
+      tag: 1.0.4
+      pullPolicy: IfNotPresent
+  apimShg:
+    enable: false
+    image:
+      repository: mcr.microsoft.com/azure-api-management/gateway
+      tag: 2.3.0-preview-2
+    endpoint: jmdevapim001.configuration.azure-api.net
+    shgTokenSecret: eshop-shg-token
+  remoteGW:
+    enabled: true
+    endpoint: eshop.client.mfgakspg.com/apis
 
 #redis
 redis:
-  resources: {}
+  resources:
+    requests:
+      cpu: 200m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 
 #sqldata
 sqldata:
-  resources: {}
+  resources:
+    requests:
+      cpu: 200m
+      memory: 128Mi
+    limits:
+      cpu: 1000m
+      memory: 512Mi
 
 #rabbitmq
 rabbitmq:
-  resources: {}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 512Mi
 
-#seq
+#seq:
 seq:
-  resources: {}
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 
 #zipkin
 zipkin:
-  resources: {}
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 
 #webstatus
 webstatus:
-  resources: {}
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 
 #maildev:
 mailserver:
-  resources: {}
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 512Mi
 
-#opentelemetry
+#opentelemetry otel
 opentelemetry:
-  resources: {}
+  resources:
+    limits:
+      cpu: 200m
+      memory: 1Gi
+    requests:
+      cpu: 50m
+      memory: 100Mi
 
-#gateway
-gateway:
-  type: Envoy
-  serviceName: gateway
-  envoy:
-    enabled: true
-    image:
-      repository: eshopdapr/webshoppingapigw
-      tag: latest
-      pullPolicy: IfNotPresent
-  apimShg:
-    enabled: false
-    endpoint: ""
-    shgTokenSecret: ""
-    image:
-      repository: mcr.microsoft.com/azure-api-management/gateway
-      tag: v2
-  remoteGW: 
-    enabled: false
-    endpoint: ""
-
-
-#ingress for blazor app, identity, and gateway
 ingress:
-  className: nginx
-  tls: []
-#   - hosts:
-#       - localhost
-#     secretName: secret
+  class: azure-alb-external
+  tls:
+    - hosts:
+        - eshop.client-agc.mfgakspg.com
+      secretName: eshop-client-agc-mfgakspg-com-cert
+agc:
+  resourceId: /subscriptions/38bfc61d-d89a-4df6-b8fb-0c14568dcf29/resourceGroups/aks-playground-eastus-hub-rg/providers/Microsoft.ServiceNetworking/trafficControllers/aks-playground-eastus-agc
+  frontend: eastus-agc-eshop-frontend
+  # ingress:
+  #   tls:
+  #     - hosts:
+  #         - eshop.client-agc.mfgakspg.com
+  #       secretName: eshop-client-agc-mfgakspg-com-cert
