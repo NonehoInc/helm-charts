@@ -151,7 +151,7 @@ spec:
   - host: {{ .Values.hostName }}
     http:
       paths: 
-      - path: /catalog(/|$)(.*)
+      - path: /catalog/
         pathType: Prefix
         backend:
           service:

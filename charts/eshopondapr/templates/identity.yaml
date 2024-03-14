@@ -112,7 +112,7 @@ spec:
   - host: {{ .Values.hostName }}
     http:
       paths: 
-      - path: /identity(/.*)
+      - path: /identity/
         pathType: Prefix
         backend:
           service:

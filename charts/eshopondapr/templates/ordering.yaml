@@ -111,7 +111,7 @@ spec:
   - host: {{ .Values.hostName }}
     http:
       paths: 
-      - path: /ordering(/|$)(.*)
+      - path: /ordering/
         pathType: Prefix
         backend:
           service:
