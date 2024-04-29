@@ -85,8 +85,7 @@ metadata:
   name: blazorclient-ingress
   namespace: {{ .Values.namespace }}
   annotations:
-    alb.networking.azure.io/alb-id: {{ .Values.agc.resourceId }}
-    alb.networking.azure.io/alb-frontend: {{ .Values.agc.frontend }}
+    # kubernetes.azure.com/tls-cert-keyvault-uri: https://kv-mfg-pg-xabg.vault.azure.net/certificates/demoapp-mfgakspg-com/8c4f899e58bb434dacf3f4bac5503241
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
