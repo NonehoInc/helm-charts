@@ -26,6 +26,7 @@ metadata:
   labels:
     app: eshop
     service: ordering
+    azure.workload.identity/use: "true"
 spec:
   replicas: 1
   selector:
@@ -36,6 +37,7 @@ spec:
       labels:
         app: eshop
         service: ordering
+        azure.workload.identity/use: "true"
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "ordering-api"
@@ -43,6 +45,7 @@ spec:
         dapr.io/config: "dapr-config"
         dapr.io/log-as-json: "true"
     spec:
+      serviceAccountName: eshop-sa
       containers:
         - name: ordering-api
           image: {{ .Values.ordering.image.repository }}:{{ .Values.ordering.image.tag }}
