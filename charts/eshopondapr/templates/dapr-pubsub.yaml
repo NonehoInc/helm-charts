@@ -22,7 +22,7 @@ spec:
   #- name: concurrency
   #  value: parallel
   - name: redisHost
-    value: redis:6379
+    value: {{ .Values.redis.host }}
   - name: redisPassword
     secretKeyRef:
       name: eshopondapr-secrets

@@ -75,6 +75,7 @@ webshoppingagg:
 
 #redis
 redis:
+  host: redis:6379
   resources: {}
 
 #sqldata
